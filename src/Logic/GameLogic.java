@@ -2,15 +2,15 @@ package Logic;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import Scene.Background;
 import Entity.Item;
 import Entity.Plane;
 import Entity.Player;
 import shareObj.RenderableHolder;
 
+
 public class GameLogic {
 	private static List<Plane> planeContainer;
-	
 	private Thread update;
 	private static List<Item> itemContainer;
 	
@@ -19,6 +19,8 @@ public class GameLogic {
 	
 	public GameLogic() {
 		planeContainer = new ArrayList<Plane>();
+		Background bg = new Background();
+		RenderableHolder.getInstance().add(bg);
 		Player p = new Player();
 		addEntity(p);
 	}

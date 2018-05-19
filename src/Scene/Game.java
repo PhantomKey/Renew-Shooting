@@ -26,7 +26,7 @@ public class Game extends Canvas{
 		for (IRenderable entity : RenderableHolder.getInstance().getEntities()) {
 			if (entity.visible() && !entity.isDestroyed()) {
 				entity.draw(gc);
-			}
+			} 
 		}
 	}
 	AnimationTimer animation = new AnimationTimer() {

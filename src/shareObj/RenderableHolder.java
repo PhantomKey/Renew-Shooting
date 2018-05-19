@@ -5,21 +5,42 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import Entity.Plane;
+import javafx.scene.image.Image;
+import javafx.scene.media.AudioClip;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
 	private List<IRenderable> entities;
 	private Comparator<IRenderable> comparator;
-	//////////////////////// Resource//////////////////////
-	//////////////////////////////////////////////////////
-
+	
+	public static AudioClip shoot1 ;
+	public static AudioClip shoot2 ;
+	public static AudioClip shoot3 ;
+	public static Image backgroundspace ;
+	public static Image backgroundgame ;
+	public static Image spaceship ;
+	public static Image boss1 ;
+	public static Image boss2 ;
+	public static Image boss3 ;
+	public static Image enermy ;
+	
 	static {
 		loadResources();
 	}
 
 	public static void loadResources() {
-
+		System.out.println("load");
+		/*shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
+		shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
+		shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());*/
+		//backgroundspace = new Image(ClassLoader.getSystemResource("D:/CP/Java/Project/Renew_Shooting/res/bggame.gif").toString());
+		/*backgroundgame = new Image("bggame.gif");
+		spaceship = new Image("spaceship.png");
+		boss1 = new Image("alien1.png");*/
+		boss2 = new Image(ClassLoader.getSystemResource("/res/alien2.png").toString());
+		/*boss3 = new Image("alien3.png");
+		enermy = new Image("enermy.png");*/
+	
 	}
 
 	public RenderableHolder() {
@@ -35,7 +56,12 @@ public class RenderableHolder {
 	public static RenderableHolder getInstance() {
 		return instance;
 	}
-
+	
+	public void add(IRenderable entity) {
+		entities.add(entity);
+		Collections.sort(entities,comparator);
+	}
+	
 	public void update() {
 		for (int i = entities.size() - 1; i >= 0; i--) {
 			if (entities.get(i).isDestroyed()) {
@@ -46,10 +72,5 @@ public class RenderableHolder {
 	
 	public List<IRenderable> getEntities(){
 		return entities;
-	}
-
-	public void add(IRenderable entity) {
-		entities.add(entity);
-		Collections.sort(entities,comparator);
 	}
 }
