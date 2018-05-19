@@ -1,8 +1,11 @@
 package shareObj;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import Entity.Plane;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
@@ -43,5 +46,10 @@ public class RenderableHolder {
 	
 	public List<IRenderable> getEntities(){
 		return entities;
+	}
+
+	public void add(IRenderable entity) {
+		entities.add(entity);
+		Collections.sort(entities,comparator);
 	}
 }

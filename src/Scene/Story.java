@@ -10,12 +10,12 @@ import javafx.scene.paint.Color;
 
 public class Story extends Canvas {
 	public Story() {
-		super(sceneManager.SCENE_WIDTH, sceneManager.SCENE_HEIGHT);
+		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 
 		GraphicsContext gc = this.getGraphicsContext2D();
 
 		gc.setFill(Color.BLACK);
-		gc.fillRect(0, 0, sceneManager.SCENE_WIDTH, sceneManager.SCENE_HEIGHT);
+		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		this.addKeyEventHandler();
 	}
 
@@ -25,7 +25,7 @@ public class Story extends Canvas {
 				if (key.getCode() == KeyCode.ESCAPE) {
 					Platform.exit();
 				} else if (key.getCode() == KeyCode.ENTER) {
-					sceneManager.goToSceneOf(new Game());
+					SceneManager.goToSceneOf(new Game());
 				}
 			}
 		});

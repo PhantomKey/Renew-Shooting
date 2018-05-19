@@ -19,21 +19,21 @@ public class MainMenu extends Canvas{
 	
 	
 	public MainMenu() {
-		super(sceneManager.SCENE_WIDTH,sceneManager.SCENE_HEIGHT);
+		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
 		
 		
 		GraphicsContext gc = this.getGraphicsContext2D();
 		//gc.drawImage(img, x, y);
 		
 		gc.setFill(Color.WHITE);
-		gc.fillRect(0, 0, sceneManager.SCENE_WIDTH, sceneManager.SCENE_HEIGHT);
+		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		
 		gc.setFill(Color.BLACK);
 		gc.setTextAlign(TextAlignment.CENTER);
 		gc.setFont(Tiltle);
-		gc.fillText("ShootingSpace",sceneManager.SCENE_WIDTH / 2,sceneManager.SCENE_HEIGHT / 4);
+		gc.fillText("ShootingSpace",SceneManager.SCENE_WIDTH / 2,SceneManager.SCENE_HEIGHT / 4);
 		gc.setFont(Menu);
-		gc.fillText("Press Enter to start", sceneManager.SCENE_WIDTH / 2, sceneManager.SCENE_HEIGHT * 3 / 4);
+		gc.fillText("Press Enter to start", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT * 3 / 4);
 		
 		this.addKeyEventHandler();
 	}
@@ -44,7 +44,7 @@ public class MainMenu extends Canvas{
 				if (key.getCode() == KeyCode.ESCAPE) {
 					Platform.exit();
 				} else if (key.getCode() == KeyCode.ENTER) {
-					sceneManager.goToSceneOf(new Tutorial());
+					SceneManager.goToSceneOf(new Tutorial());
 				}
 			}
 			});

@@ -5,7 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class sceneManager {
+public class SceneManager {
 	
 	private static Stage primaryStage;
 	private static Canvas mainMenuCanvas = new MainMenu();

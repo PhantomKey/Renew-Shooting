@@ -1,6 +1,6 @@
 package Main;
 
-import Scene.sceneManager;
+import Scene.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,8 +14,8 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		sceneManager.initialize(primaryStage);
-		sceneManager.gotoMainMenu();
+		SceneManager.initialize(primaryStage);
+		SceneManager.gotoMainMenu();
 		primaryStage.setTitle("Shoot! Shoot");
 		primaryStage.setResizable(false);
 		primaryStage.centerOnScreen();
