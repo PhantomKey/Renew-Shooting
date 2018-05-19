@@ -33,11 +33,11 @@ public class RenderableHolder {
 		/*shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
 		shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
 		shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());*/
-		//backgroundspace = new Image(ClassLoader.getSystemResource("D:/CP/Java/Project/Renew_Shooting/res/bggame.gif").toString());
+		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.gif").toString());
 		/*backgroundgame = new Image("bggame.gif");
 		spaceship = new Image("spaceship.png");
 		boss1 = new Image("alien1.png");*/
-		boss2 = new Image(ClassLoader.getSystemResource("/res/alien2.png").toString());
+		boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
 		/*boss3 = new Image("alien3.png");
 		enermy = new Image("enermy.png");*/
 	
