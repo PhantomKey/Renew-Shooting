@@ -20,7 +20,7 @@ public abstract class Entity implements IRenderable{
 	public boolean visible() {
 		return visible;
 	}
-	public boolean isDestroyed() {
+	public boolean isDestroyed() { 
 		return destroyed;
 	}
 

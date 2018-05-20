@@ -1,5 +1,7 @@
 package Entity;
 
+import java.awt.Rectangle;
+
 import Logic.GameLogic;
 import Scene.SceneManager;
 
@@ -25,13 +27,24 @@ public abstract class CollidableEntity extends Entity {
 	}
 
 	protected void outOfBound(Item item) {
-		/*
-		 * if (this.x > SceneManager.SCENE_WIDTH) { this.destroyed = true;
-		 * GameLogic.removeEntity(item); } if (this.x < 0) { this.destroyed = true;
-		 * GameLogic.removeEntity(item); } if (this.y > SceneManager.SCENE_HEIGHT) {
-		 * this.destroyed = true; GameLogic.removeEntity(item); } if (this.y < 0) {
-		 * this.destroyed = true; GameLogic.removeEntity(item); }
-		 */
+
+		if (this.x > SceneManager.SCENE_WIDTH) {
+			this.destroyed = true;
+			GameLogic.removeEntity(item);
+		}
+		if (this.x < 0) {
+			this.destroyed = true;
+			GameLogic.removeEntity(item);
+		}
+		if (this.y > SceneManager.SCENE_HEIGHT) {
+			this.destroyed = true;
+			GameLogic.removeEntity(item);
+		}
+		if (this.y < 0) {
+			this.destroyed = true;
+			GameLogic.removeEntity(item);
+		}
+
 	}
 
 	protected void outOfBound(BasicBullet bullet) {
@@ -57,11 +70,17 @@ public abstract class CollidableEntity extends Entity {
 		}
 	}
 
-	protected void destroy() {
-		this.destroyed = true;
-		if (this instanceof BasicBullet) {
-			GameLogic.removeEntity((BasicBullet) this);
+	public Rectangle getBound(int width, int height) {
+		return new Rectangle((int) x, (int) y, width, height);
+	}
 
+	protected void destroy() {
+		if (this instanceof Item) {
+			this.destroyed = true;
+			GameLogic.removeEntity((Item) this);
+		} else if (this instanceof BasicBullet) {
+			this.destroyed = true;
+			GameLogic.removeEntity((BasicBullet) this);
 		}
 	}
 }

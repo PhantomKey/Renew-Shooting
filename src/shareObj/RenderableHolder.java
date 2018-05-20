@@ -24,6 +24,7 @@ public class RenderableHolder {
 	public static Image boss3 ;
 	public static Image enermy ;
 	public static Image playerBullet;
+	public static Image Instruction;
 	
 	static {
 		loadResources();
@@ -34,7 +35,7 @@ public class RenderableHolder {
 		//shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
 		//shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
 		//shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
-		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.gif").toString());
+		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
 		//backgroundgame = new Image("bggame.gif");
 		spaceship = new Image(ClassLoader.getSystemResource("spaceship.png").toString(),17.4375,50,false,false
 				);
@@ -43,10 +44,10 @@ public class RenderableHolder {
 		//boss3 = new Image("alien3.png");
 		//enermy = new Image("enermy.png");
 		playerBullet = new Image(ClassLoader.getSystemResource("bullet1.png").toString());
-	
+		Instruction = new Image(ClassLoader.getSystemResource("Instruction.png").toString());
 	}
 
-	public RenderableHolder() {
+	public RenderableHolder() { 
 		entities = new ArrayList<IRenderable>();
 		comparator = (IRenderable o1, IRenderable o2) -> {
 			if (o1.getZ() > o2.getZ())

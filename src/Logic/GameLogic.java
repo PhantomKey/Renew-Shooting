@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Scene.Background;
 import Entity.BasicBullet;
+import Entity.Enemy;
 import Entity.Item;
 import Entity.Plane;
 import Entity.Player;
@@ -15,6 +16,7 @@ public class GameLogic {
 	private Thread update;
 	private static List<Item> itemContainer;
 	private static List<BasicBullet> bulletContainer;
+	private static List<Enemy> enemyContainer;
 	
 	
 	private Player p;
@@ -35,7 +37,7 @@ public class GameLogic {
 
 	public synchronized static void removeEntity(Plane entity) {
 		planeContainer.remove(entity);
-	}
+	} 
 	
 	public synchronized static void addEntity(Item entity) {
 		itemContainer.add(entity);
@@ -49,19 +51,31 @@ public class GameLogic {
 	public synchronized static void addEntity(BasicBullet entity) {
 		System.out.println("add");
 		bulletContainer.add(entity);
+		System.out.println(bulletContainer.size());
 		RenderableHolder.getInstance().add(entity);
 	}
 
 	public synchronized static void removeEntity(BasicBullet entity) {
+		System.out.println("remove");
 		bulletContainer.remove(entity);
 	}
+	
+	public synchronized static void addEntity(Enemy entity) {
+		enemyContainer.add(entity);
+		RenderableHolder.getInstance().add(entity);
+	}
+
+	public synchronized static void removeEntity(Enemy entity) {
+		enemyContainer.remove(entity);
+	}
+
 	
 	public void run() {
 		
 		int i, j;
+		
 		for (i = 0; i < planeContainer.size(); i++) {
 			if(!bulletContainer.isEmpty()) {
-				System.out.println(bulletContainer.size());
 				for (j = 0; j < bulletContainer.size(); j++) {
 					bulletContainer.get(j).update();
 					System.out.println(j);

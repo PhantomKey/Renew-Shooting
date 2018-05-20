@@ -8,10 +8,15 @@ import javafx.scene.input.KeyCode;
 public abstract class Plane extends CollidableEntityWithHp{
 	
 	public static double standX, standY;
+	private int powerLevel;
+	private int power;
+	private int[] requiredPower = {2,4,6,8,10};
 	
 	
 	public Plane(int hp, int spacialAction, int damage, double speed, double width, double height) {
 		super(hp, spacialAction, damage, speed, width, height);
+		this.power  = 0;
+		this.powerLevel = 0;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -29,6 +34,18 @@ public abstract class Plane extends CollidableEntityWithHp{
 
 	private void down() {
 		this.y += speed;
+	}
+
+	public int getPowerLevel() {
+		return powerLevel;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public int[] getRequiredPower() {
+		return requiredPower;
 	}
 
 	private void inBound() {
@@ -71,8 +88,8 @@ public abstract class Plane extends CollidableEntityWithHp{
 			}
 			
 			
-			standX = this.x;
-			standY = this.y;
+			standX = this.x; 
+			standY = this.y; 
 			inBound();
 		
 	}
@@ -87,6 +104,20 @@ public abstract class Plane extends CollidableEntityWithHp{
 
 	public int getHealth() {
 		return hp;
+	}
+	
+	public void increasePower(int i) {
+		power += i;
+		if(powerLevel == 4) {
+			if(power > requiredPower[powerLevel]) {
+				power = requiredPower[powerLevel];
+			}
+			return;
+		}
+		if(power >= requiredPower[powerLevel]) {
+			power -= requiredPower[powerLevel];
+			powerLevel++;
+		}
 	}
 
 	public void setHealth(int health) {

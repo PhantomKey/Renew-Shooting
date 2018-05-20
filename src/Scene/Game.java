@@ -17,7 +17,6 @@ public class Game extends Canvas{
 		gamelogic = new GameLogic();
 		this.isVisible();
 		addListener();
-		//addListener();
 		//startBGM();
 		animation.start();
 	}

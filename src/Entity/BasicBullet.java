@@ -7,9 +7,9 @@ public abstract class BasicBullet extends CollidableEntity{
 	
 	public BasicBullet(double angle, double x, double y,double width,double height,double speed,int damage) {
 		super(width, height, speed, damage);
-		this.x = x;
+		this.x = x-7;
 		this.y = y;
-		this.rad = Math.toRadians(angle);
+		this.rad = Math.toRadians(angle); 
 		dx = Math.cos(rad) * speed;
 		dy = Math.sin(rad) * speed;
 		// TODO Auto-generated constructor stub
@@ -19,9 +19,9 @@ public abstract class BasicBullet extends CollidableEntity{
 	public void update() {
 		System.out.println(x+" "+y);
 		this.x += dx;
-		this.y += dy;
+		this.y += dy; 
 		outOfBound(this);
-		destroy();
+		//destroy();
 	}
 
 	@Override
