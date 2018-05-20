@@ -3,6 +3,7 @@ package Logic;
 import java.util.ArrayList;
 import java.util.List;
 import Scene.Background;
+import Entity.BasicBullet;
 import Entity.Item;
 import Entity.Plane;
 import Entity.Player;
@@ -13,12 +14,14 @@ public class GameLogic {
 	private static List<Plane> planeContainer;
 	private Thread update;
 	private static List<Item> itemContainer;
+	private static List<BasicBullet> bulletContainer;
 	
 	
 	private Player p;
 	
 	public GameLogic() {
 		planeContainer = new ArrayList<Plane>();
+		bulletContainer = new ArrayList<BasicBullet>();
 		Background bg = new Background();
 		RenderableHolder.getInstance().add(bg);
 		Player p = new Player();
@@ -42,20 +45,37 @@ public class GameLogic {
 	public synchronized static void removeEntity(Item entity) {
 		itemContainer.remove(entity);
 	}
+	
+	public synchronized static void addEntity(BasicBullet entity) {
+		System.out.println("add");
+		bulletContainer.add(entity);
+		RenderableHolder.getInstance().add(entity);
+	}
+
+	public synchronized static void removeEntity(BasicBullet entity) {
+		bulletContainer.remove(entity);
+	}
+	
 	public void run() {
 		
 		int i, j;
 		for (i = 0; i < planeContainer.size(); i++) {
-			/*for (j = 0; j < itemContainer.size(); j++) {
-				if (!(planeContainer.get(i) instanceof HeroBullet) && !(planeContainer.get(i) instanceof HeroChargeBullet
+			if(!bulletContainer.isEmpty()) {
+				System.out.println(bulletContainer.size());
+				for (j = 0; j < bulletContainer.size(); j++) {
+					bulletContainer.get(j).update();
+					System.out.println(j);
+				}
+			}	/*if (!(planeContainer.get(i) instanceof HeroBullet) && !(planeContainer.get(i) instanceof HeroChargeBullet
 						&& !(planeContainer.get(i) instanceof HeroUltimate))) {
 					if (planeContainer.get(i).collision(itemContainer.get(j))) {
 						planeContainer.get(i).takeAction(itemContainer.get(j));
 					}
 				}
-				itemContainer.get(j).update();
-			}
-			for (j = 0; j < enemyContainer.size(); j++) {
+				itemContainer.get(j).update();*/
+				
+			
+			/*for (j = 0; j < enemyContainer.size(); j++) {
 				if (planeContainer.get(i).collision(enemyContainer.get(j))) {
 					planeContainer.get(i).takeDamage(enemyContainer.get(j));
 				}

@@ -22,7 +22,6 @@ public class Background implements IRenderable {
 	public void draw(GraphicsContext gc) {
 		// TODO Auto-generated method stub
 		gc.drawImage(background, 0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-		System.out.println("d");
 
 	}
 

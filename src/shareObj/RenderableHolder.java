@@ -23,6 +23,7 @@ public class RenderableHolder {
 	public static Image boss2 ;
 	public static Image boss3 ;
 	public static Image enermy ;
+	public static Image playerBullet;
 	
 	static {
 		loadResources();
@@ -30,16 +31,18 @@ public class RenderableHolder {
 
 	public static void loadResources() {
 		System.out.println("load");
-		/*shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
-		shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
-		shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());*/
+		//shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
+		//shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
+		//shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.gif").toString());
-		/*backgroundgame = new Image("bggame.gif");
-		spaceship = new Image("spaceship.png");
-		boss1 = new Image("alien1.png");*/
-		boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
-		/*boss3 = new Image("alien3.png");
-		enermy = new Image("enermy.png");*/
+		//backgroundgame = new Image("bggame.gif");
+		spaceship = new Image(ClassLoader.getSystemResource("spaceship.png").toString(),17.4375,50,false,false
+				);
+		//boss1 = new Image("alien1.png");
+		//boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
+		//boss3 = new Image("alien3.png");
+		//enermy = new Image("enermy.png");
+		playerBullet = new Image(ClassLoader.getSystemResource("bullet1.png").toString());
 	
 	}
 

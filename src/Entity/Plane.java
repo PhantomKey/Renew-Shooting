@@ -1,6 +1,7 @@
 package Entity;
 
 import Input.InputUtility;
+import Logic.GameLogic;
 import Scene.SceneManager;
 import javafx.scene.input.KeyCode;
 
@@ -8,7 +9,8 @@ public abstract class Plane extends CollidableEntityWithHp{
 	
 	public static double standX, standY;
 	
-	public Plane(int hp, int spacialAction, int damage, double speed, int width, int height) {
+	
+	public Plane(int hp, int spacialAction, int damage, double speed, double width, double height) {
 		super(hp, spacialAction, damage, speed, width, height);
 		// TODO Auto-generated constructor stub
 	}
@@ -34,9 +36,9 @@ public abstract class Plane extends CollidableEntityWithHp{
 			x = SceneManager.SCENE_WIDTH;
 		if (this.x < 0)
 			x = 0;
-		if (this.y > SceneManager.SCENE_HEIGHT)
+		if (this.y> SceneManager.SCENE_HEIGHT)
 			y = SceneManager.SCENE_HEIGHT;
-		if (this.y < 0)
+		if (this.y< 0)
 			y = 0;
 	}
 	public void update() {
@@ -67,6 +69,8 @@ public abstract class Plane extends CollidableEntityWithHp{
 			if (InputUtility.getKeyPressed(KeyCode.DOWN)) {
 				down();
 			}
+			
+			
 			standX = this.x;
 			standY = this.y;
 			inBound();

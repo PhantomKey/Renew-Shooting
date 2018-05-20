@@ -15,7 +15,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity{
 	protected int flashCounter = 0;
 	protected int flashDurationCounter = 0;
 	
-	public CollidableEntityWithHp (int hp,int spacialAction,int damage,double speed,int width,int height) {
+	public CollidableEntityWithHp (int hp,int spacialAction,int damage,double speed,double width,double height) {
 		super(width,height,speed,damage);
 		this.maxHp = hp;
 		this.maxSpacialAction = spacialAction;
@@ -64,11 +64,11 @@ public abstract class CollidableEntityWithHp extends CollidableEntity{
 		return hp;
 	}
 
-	public int getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
-	public int getHeight() {
+	public double getHeight() {
 		return height;
 	}
 }
