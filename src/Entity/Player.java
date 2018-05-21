@@ -6,6 +6,7 @@ import Scene.SceneManager;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import shareObj.RenderableHolder;
 
@@ -15,6 +16,7 @@ public class Player extends Plane implements Shootable {
 	private static Image spaceShip = RenderableHolder.spaceship;
 	private static final int DEFAULT_COOLDOWN = 20;
 	private int shootCooldown;
+	private AudioClip shoot = RenderableHolder.shoot1;
 
 	public Player() {
 		super(3, 1, 0, 5, spaceShip.getWidth(), spaceShip.getHeight());
@@ -41,10 +43,12 @@ public class Player extends Plane implements Shootable {
 		if(shootCooldown < 0) {
 			shootCooldown = 0;
 		}
-		
+		invulnerableTime--;
+		checkHpAndSpacialAttack();
+		destroy();
 		/*
-		 * chargeShoot(); heal(); ultimate(); invulnerableTime--; healDelay--; shoot();
-		 * destroy(); recoveryMana(); checkHPAndMana();
+		 * chargeShoot(); heal(); ultimate(); ; healDelay--; 
+		 *  recoveryMana(); 
 		 */
 	}
 
@@ -55,6 +59,7 @@ public class Player extends Plane implements Shootable {
 	
 			// laser.setVolume(0.5);
 			// laser.play();
+			shoot.play();
 			int powerLevel = this.getPowerLevel();
 			if (powerLevel < 2) {
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x, this.y)));

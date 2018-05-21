@@ -32,6 +32,7 @@ public class RenderableHolder {
 	public static Image Regen;
 	public static Image Sp;
 	public static Image SpGate;
+	public static AudioClip BMG;
 	
 	
 	static {
@@ -40,7 +41,7 @@ public class RenderableHolder {
 
 	public static void loadResources() {
 		System.out.println("load");
-		//shoot1 = new AudioClip(ClassLoader.getSystemResource("source/gunshot1.wav").toString());
+		shoot1 = new AudioClip(ClassLoader.getSystemResource("2.wav").toString());
 		//shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
 		//shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
@@ -59,6 +60,7 @@ public class RenderableHolder {
 		Regen = new Image(ClassLoader.getSystemResource("PowerUp3.png").toString());
 		Sp = new Image(ClassLoader.getSystemResource("PowerUp6.png").toString());
 		SpGate = new Image(ClassLoader.getSystemResource("wrench.png").toString());
+		BMG = new  AudioClip(ClassLoader.getSystemResource("3.wav").toString());
 		
 	}
 

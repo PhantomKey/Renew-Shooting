@@ -11,6 +11,7 @@ public abstract class Plane extends CollidableEntityWithHp{
 	private int powerLevel;
 	private int power;
 	private int[] requiredPower = {2,4,6,8,10};
+
 	
 	
 	public Plane(int hp, int spacialAction, int damage, double speed, double width, double height) {
@@ -59,7 +60,7 @@ public abstract class Plane extends CollidableEntityWithHp{
 			y = 0;
 	}
 	public void update() {
-		/*if (flashing) {
+		if (flashing) {
 			if (flashCounter == 0) {
 				this.visible = true;
 				flashing = false;
@@ -73,7 +74,7 @@ public abstract class Plane extends CollidableEntityWithHp{
 					flashCounter--;
 				}
 			}
-		}*/
+		}
 			if (InputUtility.getKeyPressed(KeyCode.UP)) {
 				up();
 			}
