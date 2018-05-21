@@ -7,6 +7,7 @@ import shareObj.IRenderable;
 import shareObj.RenderableHolder;
 
 public class Background implements IRenderable {
+	//private static Image star = RenderableHolder.star;
 	private static Image background = RenderableHolder.backgroundspace;
 	private static double moveY;
 	private static double ScrollY;

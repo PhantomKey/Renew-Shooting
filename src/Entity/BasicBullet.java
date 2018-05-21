@@ -7,7 +7,7 @@ public abstract class BasicBullet extends CollidableEntity{
 	
 	public BasicBullet(double angle, double x, double y,double width,double height,double speed,int damage) {
 		super(width, height, speed, damage);
-		this.x = x-7;
+		this.x = x;
 		this.y = y;
 		this.rad = Math.toRadians(angle); 
 		dx = Math.cos(rad) * speed;

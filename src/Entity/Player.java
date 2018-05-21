@@ -32,8 +32,16 @@ public class Player extends Plane implements Shootable {
 	public void update() {
 		super.update();
 		if (InputUtility.getKeyPressed(KeyCode.Z)) {
-			shoot();
+				if (shootCooldown == 0) {
+					shoot();
+					shootCooldown = DEFAULT_COOLDOWN;
+				}
 		}
+		shootCooldown--;
+		if(shootCooldown < 0) {
+			shootCooldown = 0;
+		}
+		
 		/*
 		 * chargeShoot(); heal(); ultimate(); invulnerableTime--; healDelay--; shoot();
 		 * destroy(); recoveryMana(); checkHPAndMana();
@@ -44,25 +52,21 @@ public class Player extends Plane implements Shootable {
 	public void shoot() {
 		// TODO Auto-generated method stub
 		System.out.println("shoot");
-		if (shootCooldown == 0) {
+	
 			// laser.setVolume(0.5);
 			// laser.play();
 			int powerLevel = this.getPowerLevel();
 			if (powerLevel < 2) {
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x, this.y)));
 			} else if (powerLevel < 4) {
-				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x - 5, this.y)));
-				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x + 5, this.y)));
+				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x - 10, this.y)));
+				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x + 10, this.y)));
 			} else {
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x, this.y)));
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(275, this.x+5, this.y)));
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(265, this.x-5, this.y)));
 			}
 
-			shootCooldown = DEFAULT_COOLDOWN;
-		} else {
-			shootCooldown--;
-		}
 	}
 
 }

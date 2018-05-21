@@ -9,7 +9,7 @@ public class PlayerBullet extends BasicBullet {
 	private static Image bullet = RenderableHolder.playerBullet;
 	
 	public PlayerBullet(double angle, double x, double y) {
-		super(angle, x, y, bullet.getWidth(), bullet.getHeight(),10,1);
+		super(angle, x+15.5, y, bullet.getWidth(), bullet.getHeight(),10,1);
 	}	 
 
 	@Override

@@ -25,6 +25,14 @@ public class RenderableHolder {
 	public static Image enermy ;
 	public static Image playerBullet;
 	public static Image Instruction;
+	public static Image star;
+	public static Image enermy1;
+	public static Image Life;
+	public static Image Power;
+	public static Image Regen;
+	public static Image Sp;
+	public static Image SpGate;
+	
 	
 	static {
 		loadResources();
@@ -37,24 +45,30 @@ public class RenderableHolder {
 		//shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
 		//backgroundgame = new Image("bggame.gif");
-		spaceship = new Image(ClassLoader.getSystemResource("spaceship.png").toString(),17.4375,50,false,false
-				);
+		spaceship = new Image(ClassLoader.getSystemResource("3.png").toString());
 		//boss1 = new Image("alien1.png");
 		//boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
 		//boss3 = new Image("alien3.png");
 		//enermy = new Image("enermy.png");
-		playerBullet = new Image(ClassLoader.getSystemResource("bullet1.png").toString());
+		playerBullet = new Image(ClassLoader.getSystemResource("1.png").toString());
 		Instruction = new Image(ClassLoader.getSystemResource("Instruction.png").toString());
+		star = new Image(ClassLoader.getSystemResource("star.gif").toString(),100,100,false,false);
+		enermy1 = new Image(ClassLoader.getSystemResource("10.png").toString());
+		Life= new Image(ClassLoader.getSystemResource("FullLife.png").toString());
+		Power = new Image(ClassLoader.getSystemResource("PowerUp1.png").toString());
+		Regen = new Image(ClassLoader.getSystemResource("PowerUp3.png").toString());
+		Sp = new Image(ClassLoader.getSystemResource("PowerUp6.png").toString());
+		SpGate = new Image(ClassLoader.getSystemResource("wrench.png").toString());
+		
 	}
 
-	public RenderableHolder() { 
+	public RenderableHolder() {
 		entities = new ArrayList<IRenderable>();
 		comparator = (IRenderable o1, IRenderable o2) -> {
 			if (o1.getZ() > o2.getZ())
 				return 1;
 			return -1;
 		};
-
 	}
 
 	public static RenderableHolder getInstance() {

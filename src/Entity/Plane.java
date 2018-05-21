@@ -49,12 +49,12 @@ public abstract class Plane extends CollidableEntityWithHp{
 	}
 
 	private void inBound() {
-		if (this.x > SceneManager.SCENE_WIDTH)
-			x = SceneManager.SCENE_WIDTH;
+		if (this.x > SceneManager.SCENE_WIDTH-this.width)
+			x = SceneManager.SCENE_WIDTH-this.width;
 		if (this.x < 0)
 			x = 0;
-		if (this.y> SceneManager.SCENE_HEIGHT)
-			y = SceneManager.SCENE_HEIGHT;
+		if (this.y> SceneManager.SCENE_HEIGHT-this.height)
+			y = SceneManager.SCENE_HEIGHT-this.height;
 		if (this.y< 0)
 			y = 0;
 	}
@@ -91,6 +91,7 @@ public abstract class Plane extends CollidableEntityWithHp{
 			standX = this.x; 
 			standY = this.y; 
 			inBound();
+			outOfBound(this);
 		
 	}
 	
@@ -125,7 +126,8 @@ public abstract class Plane extends CollidableEntityWithHp{
 	}
 
 	public int getSpacialAction() {
-		return spacialAction;
+		return this.spacialAction;
+		
 	}
 
 	public void setSpacialAction(int spacialAction) {

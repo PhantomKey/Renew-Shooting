@@ -4,16 +4,18 @@ import java.util.Random;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import shareObj.RenderableHolder;
 
 public class Item extends CollidableEntity{
 	private static String[] ITEM_LIST = {"Heal","SP","UP"};
 	private String name;
-	private Image heard = null;
-	private Image sp = null;
+	public static Image sp = RenderableHolder.Sp;
+	public static Image regen = RenderableHolder.Regen;
+	public static Image power = RenderableHolder.Power;
 	
 	
 	public Item(double x, double y) {
-		super(0, 0, 1, 0);
+		super(24, 19, 1, 0);
 		this.x = x;
 		this.y = y;
 		
@@ -38,11 +40,19 @@ public class Item extends CollidableEntity{
 		}else {
 			this.y += speed;
 		}
+		outOfBound(this);
 	}
  
 	@Override
 	public void draw(GraphicsContext gc) {
 		// TODO Auto-generated method stub
+		if(name.equals("Heal")) {
+			gc.drawImage(regen, x, y, 24, 19);
+		}else if(name.equals("SP")) {
+			gc.drawImage(sp, x, y, 24, 19);
+		}else if(name.equals("UP")) {
+			gc.drawImage(power, x, y, 24, 19);
+		}
 		
 	}
 	
