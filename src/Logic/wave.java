@@ -23,7 +23,7 @@ public class Wave {
 		if (name == "Mass") {
 			Mass();
 		} else if (name == "Wave") {
-			Wave();
+			wave();
 		} else if (name == "Strike") {
 			Strike();
 		} else if (name == "All") {
@@ -36,13 +36,13 @@ public class Wave {
 		posY = 0;
 		for (int i = 0; i < 3*numberMultiply; i++) {
 			GameLogic.addEntity(new Minion1(posX, posY));
-			posY = (posY+80)%SceneManager.SCENE_WIDTH;
+			posX = (posX+80)%SceneManager.SCENE_WIDTH;
 			GameLogic.addEntity(new Minion1(posX, posY));
-			posY =  (posY+80)%SceneManager.SCENE_WIDTH;
+			posX =  (posX+80)%SceneManager.SCENE_WIDTH;
 		}
 	}
 
-	private static void Wave() {
+	private static void wave() {
 		posX = 0;
 		posY = 0;
 		for (int i = 0; i < 6*numberMultiply; i++) {
@@ -73,7 +73,7 @@ public class Wave {
 	}
 	private static void BadLuckGamer() {
 		Mass();
-		Wave();
+		wave();
 		Strike();
 	}
 	
