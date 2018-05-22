@@ -25,6 +25,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		this.maxSpacialAction = 3;
 		this.hp = hp;
 		this.spacialAction = spacialAction;
+		
 	}
 
 	public void checkHpAndSpacialAttack() {
@@ -100,14 +101,10 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 				.intersects(enemy.getBound((int) enemy.width, (int) enemy.height));
 	}
 
-	/*
-	 * public boolean collision(PlayerBullet hero){ return this.getBound((int)width,
-	 * (int)height).intersects(hero.getBound((int)hero.width,(int)hero.height)); }
-	 */
 	protected void dropItem() {
 		Random random = new Random();
 		dropChance = random.nextInt(100)+1;
-		if (dropChance >= 0 && dropChance < 30 /* && !(this instanceof EnemyBullet) */) { ////////////// Drop Chance																					////////////// 10%///////////////////////////
+		if (dropChance >= 0 && dropChance < 20 ) { ////////////// Drop Chance																					////////////// 10%///////////////////////////
 			GameLogic.addEntity(new Item(this.x, this.y));
 		}
 	}
@@ -174,4 +171,5 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 			GameLogic.removeEntity(tempPlane);
 		}
 	}
+
 }

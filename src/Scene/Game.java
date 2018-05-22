@@ -20,6 +20,7 @@ public class Game extends Canvas {
 	private boolean isBGMRunning;
 	public static Thread processBGM;
 	private CWave  countWave;
+	
 	public Game() {
 		super(SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		gamelogic = new GameLogic();

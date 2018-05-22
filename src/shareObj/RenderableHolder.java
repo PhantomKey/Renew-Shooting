@@ -35,6 +35,7 @@ public class RenderableHolder {
 	public static AudioClip Bom;
 	public static Image blast;
 	public static AudioClip take;
+	public static Image enermy2;
 
 	static {
 		loadResources();
@@ -57,6 +58,7 @@ public class RenderableHolder {
 		Instruction = new Image(ClassLoader.getSystemResource("Instruction.png").toString());
 		star = new Image(ClassLoader.getSystemResource("star.gif").toString(), 100, 100, false, false);
 		enermy1 = new Image(ClassLoader.getSystemResource("10.png").toString());
+		enermy2 = new Image(ClassLoader.getSystemResource("11.png").toString());
 		Life = new Image(ClassLoader.getSystemResource("FullLife.png").toString());
 		Power = new Image(ClassLoader.getSystemResource("PowerUp1.png").toString());
 		Regen = new Image(ClassLoader.getSystemResource("PowerUp3.png").toString());

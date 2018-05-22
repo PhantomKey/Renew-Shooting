@@ -1,5 +1,6 @@
 package Main;
 
+import Scene.Game;
 import Scene.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -22,7 +23,7 @@ public class Main extends Application{
 	}
 	
 	public void stop() {
-		//GameScreen.processBGM.interrupt();
+		Game.processBGM.stop();
 		//WinScreen.processBGM.interrupt();
 		//GameoverScreen.processBGM.interrupt();
 	}

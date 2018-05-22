@@ -22,7 +22,7 @@ public class Player extends Plane implements Shootable {
 	private int time;
 
 	public Player() {
-		super(3, 2, 0, 5, spaceShip.getWidth(), spaceShip.getHeight());
+		super(3, 1, 0, 5, spaceShip.getWidth(), spaceShip.getHeight());
 		this.y = SceneManager.SCENE_HEIGHT - this.height - 50;
 		this.x = SceneManager.SCENE_WIDTH / 2;
 		delay = 20;

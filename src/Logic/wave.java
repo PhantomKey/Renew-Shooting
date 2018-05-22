@@ -3,6 +3,7 @@ package Logic;
 import java.util.Random;
 
 import Entity.Minion1;
+import Entity.Minion2;
 import Entity.Player;
 import Scene.SceneManager;
 
@@ -38,7 +39,7 @@ public class Wave {
 		for (int i = 0; i < 3*numberMultiply; i++) {
 			GameLogic.addEntity(new Minion1(posX, posY));
 			posX = (posX+80)%SceneManager.SCENE_WIDTH;
-			GameLogic.addEntity(new Minion1(posX, posY));
+			GameLogic.addEntity(new Minion2(posX, posY));
 			posX =  (posX+80)%SceneManager.SCENE_WIDTH;
 		}
 	}
