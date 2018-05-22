@@ -59,17 +59,40 @@ public class Player extends Plane implements Shootable {
 		// TODO Auto-generated method stub
 		shoot.play();
 		int powerLevel = this.getPowerLevel();
-		if (powerLevel < 2) {
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x, this.y)));
-		} else if (powerLevel < 4) {
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x - 10, this.y)));
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x + 10, this.y)));
-		} else {
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(270, this.x, this.y)));
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(275, this.x + 5, this.y)));
-			GameLogic.addEntity((BasicBullet) (new PlayerBullet(265, this.x - 5, this.y)));
+		PlayerBullet bullet1 =  new PlayerBullet(270, this.x, this.y);
+		PlayerBullet bullet2=  new PlayerBullet(270, this.x-10, this.y);
+		PlayerBullet bullet3 =  new PlayerBullet(270, this.x+10, this.y);
+		PlayerBullet bullet4 =  new PlayerBullet(275, this.x+5, this.y);
+		PlayerBullet bullet5 =  new PlayerBullet(265, this.x-5, this.y);
+		
+		if(powerLevel == 0) {
+			GameLogic.addEntity((BasicBullet) bullet1);
+		}else if(powerLevel == 1) {
+			bullet1.upDamage(1);
+			GameLogic.addEntity((BasicBullet) bullet1);
+		}else if(powerLevel == 2) {
+			GameLogic.addEntity((BasicBullet) bullet2);
+			GameLogic.addEntity((BasicBullet) bullet3);
+		}else if(powerLevel == 3) {
+			bullet2.upDamage(1);
+			bullet3.upDamage(1);
+			GameLogic.addEntity((BasicBullet) bullet2);
+			GameLogic.addEntity((BasicBullet) bullet3);
+		}else if(powerLevel == 4) {
+			bullet1.upDamage(1);
+			bullet4.upDamage(1);
+			bullet5.upDamage(1);
+			GameLogic.addEntity((BasicBullet) bullet1);
+			GameLogic.addEntity((BasicBullet) bullet4);
+			GameLogic.addEntity((BasicBullet) bullet5);
+		}else {
+			bullet1.upDamage(2);
+			bullet4.upDamage(2);
+			bullet5.upDamage(2);
+			GameLogic.addEntity((BasicBullet) bullet1);
+			GameLogic.addEntity((BasicBullet) bullet4);
+			GameLogic.addEntity((BasicBullet) bullet5);
 		}
-
 	}
 
 	public void ultimate() {

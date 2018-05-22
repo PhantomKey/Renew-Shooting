@@ -37,6 +37,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	}
 
 	public void takeAction(Item item) {
+		RenderableHolder.take.play();
 		if (item.getName().equals("Heal")) {
 			this.hp += 1;
 		} else if (item.getName().equals("SP")) {
@@ -125,7 +126,6 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 
 	@Override
 	public void destroy() {
-		//System.out.println("Coll");
 		super.destroy();
 		if (this.hp <= 0) {
 			this.destroyed = true;

@@ -1,6 +1,5 @@
 package Scene;
 
-import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -25,7 +24,6 @@ public class MainMenu extends Canvas{
 		
 		
 		GraphicsContext gc = this.getGraphicsContext2D();
-		//gc.drawImage(img, x, y);
 		gc.drawImage(background, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
 		gc.setFill(Color.WHITE);
 		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);

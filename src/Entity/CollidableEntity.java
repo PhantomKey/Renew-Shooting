@@ -26,6 +26,10 @@ public abstract class CollidableEntity extends Entity {
 		return damage;
 	}
 
+	public void upDamage(int i) {
+		this.damage += i;
+	}
+
 	protected void outOfBound(Item item) {
 
 		if (this.x > SceneManager.SCENE_WIDTH) {
@@ -51,24 +55,25 @@ public abstract class CollidableEntity extends Entity {
 		if (this.x > SceneManager.SCENE_WIDTH) {
 			this.destroyed = true;
 			GameLogic.removeEntity(bullet);
-			System.out.println("F");
+
 		}
 		if (this.x < 0) {
 			this.destroyed = true;
 			GameLogic.removeEntity(bullet);
-			System.out.println("F");
+
 		}
 		if (this.y > SceneManager.SCENE_HEIGHT) {
 			this.destroyed = true;
 			GameLogic.removeEntity(bullet);
-			System.out.println("F");
+
 		}
 		if (this.y < 0) {
 			this.destroyed = true;
 			GameLogic.removeEntity(bullet);
-			//System.out.println("F");
+
 		}
 	}
+
 	public boolean collision(Item item) {
 		return this.getBound((int) width, (int) height).intersects(item.getBound((int) item.width, (int) item.height));
 	}
@@ -82,7 +87,6 @@ public abstract class CollidableEntity extends Entity {
 			this.destroyed = true;
 			GameLogic.removeEntity((Item) this);
 		} else if (this instanceof BasicBullet) {
-			//System.out.println("Destroy");
 			this.destroyed = true;
 			GameLogic.removeEntity((BasicBullet) this);
 		}
