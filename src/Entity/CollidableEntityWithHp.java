@@ -60,6 +60,18 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		}
 		this.hp -= damage;
 	}
+	
+	public void takeDamage(SpacialAttack pBullet) {
+		/*
+		 * if (this instanceof Boss) { RenderableHolder.takeDamage.setVolume(0.2);
+		 * RenderableHolder.takeDamage.play(); }
+		 */
+		int damage = pBullet.getDamage();
+		if (damage < 1) {
+			damage = 1;
+		}
+		this.hp -= damage;
+	}
 
 	public void takeDamage(Enemy enemy) {
 		int damage = enemy.getDamage();
@@ -81,8 +93,12 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		}
 	}
 
-	public boolean collision(PlayerBullet hero) {
-		return this.getBound((int) width, (int) height).intersects(hero.getBound((int) hero.width, (int) hero.height));
+	public boolean collision(PlayerBullet player) {
+		return this.getBound((int) width, (int) height).intersects(player.getBound((int) player.width, (int) player.height));
+	}
+	
+	public boolean collision(SpacialAttack player) {
+		return this.getBound((int) width, (int) height).intersects(player.getBound((int) player.width, (int) player.height));
 	}
 
 	public boolean collision(Enemy enemy) {
@@ -117,6 +133,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 
 	@Override
 	public void destroy() {
+		//System.out.println("Coll");
 		super.destroy();
 		if (this.hp <= 0) {
 			this.destroyed = true;

@@ -66,7 +66,7 @@ public abstract class CollidableEntity extends Entity {
 		if (this.y < 0) {
 			this.destroyed = true;
 			GameLogic.removeEntity(bullet);
-			System.out.println("F");
+			//System.out.println("F");
 		}
 	}
 
@@ -79,6 +79,7 @@ public abstract class CollidableEntity extends Entity {
 			this.destroyed = true;
 			GameLogic.removeEntity((Item) this);
 		} else if (this instanceof BasicBullet) {
+			//System.out.println("Destroy");
 			this.destroyed = true;
 			GameLogic.removeEntity((BasicBullet) this);
 		}

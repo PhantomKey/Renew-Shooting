@@ -10,6 +10,7 @@ import Entity.Item;
 import Entity.Plane;
 import Entity.Player;
 import Entity.PlayerBullet;
+import Entity.SpacialAttack;
 import shareObj.RenderableHolder;
 
 public class GameLogic {
@@ -82,7 +83,7 @@ public class GameLogic {
 			if (!bulletContainer.isEmpty()) {
 				for (j = 0; j < bulletContainer.size(); j++) {
 					bulletContainer.get(j).update();
-					System.out.println(j);
+					// System.out.println(j);
 				}
 			} /*
 				 * if (!(planeContainer.get(i) instanceof HeroBullet) && !(planeContainer.get(i)
@@ -92,21 +93,26 @@ public class GameLogic {
 				 * itemContainer.get(j).update();
 				 */
 
-			/*
-			 * for (j = 0; j < enemyContainer.size(); j++) { if
-			 * (planeContainer.get(i).collision(enemyContainer.get(j))) {
-			 * planeContainer.get(i).takeDamage(enemyContainer.get(j)); } }
-			 */
+			for (j = 0; j < enemyContainer.size(); j++) {
+				if (planeContainer.get(i).collision(enemyContainer.get(j))) {
+					planeContainer.get(i).takeDamage(enemyContainer.get(j));
+				}
+			}
 			planeContainer.get(i).update();
 
 		}
 		for (i = 0; i < enemyContainer.size(); i++) {
-			for (j = 0; j <bulletContainer.size(); j++) {
+			for (j = 0; j < bulletContainer.size(); j++) {
 				if (bulletContainer.get(j) instanceof PlayerBullet) {
 					if (enemyContainer.get(i).collision((PlayerBullet) bulletContainer.get(j))) {
 						enemyContainer.get(i).takeDamage((PlayerBullet) bulletContainer.get(j));
-					    bulletContainer.get(j).destroy();
+							bulletContainer.get(j).destroy();
+						}
 					}
+				if (bulletContainer.get(j) instanceof SpacialAttack) {
+					if (enemyContainer.get(i).collision((SpacialAttack) bulletContainer.get(j))) {
+						enemyContainer.get(i).takeDamage((SpacialAttack) bulletContainer.get(j));
+						}
 				}
 			}
 			enemyContainer.get(i).update();
