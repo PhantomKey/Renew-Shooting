@@ -104,7 +104,8 @@ public class GameLogic {
 			for (j = 0; j <bulletContainer.size(); j++) {
 				if (bulletContainer.get(j) instanceof PlayerBullet) {
 					if (enemyContainer.get(i).collision((PlayerBullet) bulletContainer.get(j))) {
-						//enemyContainer.get(i).takeDamage((PlayerBulet) bulletContainer.get(j));
+						enemyContainer.get(i).takeDamage((PlayerBullet) bulletContainer.get(j));
+					    bulletContainer.get(j).destroy();
 					}
 				}
 			}

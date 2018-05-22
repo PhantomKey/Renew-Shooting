@@ -74,7 +74,7 @@ public abstract class CollidableEntity extends Entity {
 		return new Rectangle((int) x, (int) y, width, height);
 	}
 
-	protected void destroy() {
+	public void destroy() {
 		if (this instanceof Item) {
 			this.destroyed = true;
 			GameLogic.removeEntity((Item) this);
