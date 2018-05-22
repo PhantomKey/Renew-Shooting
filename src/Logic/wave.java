@@ -43,12 +43,12 @@ public class Wave {
 	}
 
 	private static void wave() {
-		posX = 650/2;
+		posX = 120;
 		posY = 0;
 		for (int i = 0; i < 6*numberMultiply; i++) {
 			GameLogic.addEntity(new Minion1(posX, posY));
-			posX = (posX+50);
-			posY = (posY+80)%SceneManager.SCENE_HEIGHT;
+			posX =(posX+80)%SceneManager.SCENE_HEIGHT;
+			posY =  (posY-50);
 		}
 	}
 	private static void Strike() {
@@ -56,9 +56,10 @@ public class Wave {
 		posY = 0;
 		Random random = new Random();
 		for (int i = 0; i < 3*numberMultiply;i++) {
-			GameLogic.addEntity(new Minion1(Player.standX+posX,-30));
+			GameLogic.addEntity(new Minion1(Player.standX+posX,posY
+					));
 			posX += random.nextInt(20)-10;
-			posY += 30;
+			posY -= 30;
 		}
 	}
 	public static void update() {
