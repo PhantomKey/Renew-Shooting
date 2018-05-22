@@ -21,7 +21,6 @@ public class GameLogic {
 	private static List<Enemy> enemyContainer;
 
 	public static Player p;
-	private HUD hud;
 
 	public GameLogic() {
 		p = new Player();
@@ -29,6 +28,7 @@ public class GameLogic {
 		planeContainer = new ArrayList<Plane>();
 		bulletContainer = new ArrayList<BasicBullet>();
 		enemyContainer = new ArrayList<Enemy>();
+		itemContainer = new ArrayList<Item>();
 		Background bg = new Background();
 		RenderableHolder.getInstance().add(bg);
 		RenderableHolder.getInstance().add(hud);
@@ -85,13 +85,17 @@ public class GameLogic {
 					bulletContainer.get(j).update();
 					// System.out.println(j);
 				}
-			} /*
-				 * if (!(planeContainer.get(i) instanceof HeroBullet) && !(planeContainer.get(i)
-				 * instanceof HeroChargeBullet && !(planeContainer.get(i) instanceof
-				 * HeroUltimate))) { if (planeContainer.get(i).collision(itemContainer.get(j)))
-				 * { planeContainer.get(i).takeAction(itemContainer.get(j)); } }
-				 * itemContainer.get(j).update();
-				 */
+			}
+			if (!itemContainer.isEmpty()) {
+				for (j = 0; j < itemContainer.size(); j++) {
+					if (planeContainer.get(i).collision(itemContainer.get(j))) {
+						planeContainer.get(i).takeAction(itemContainer.get(j));
+						itemContainer.get(j).destroy();
+					}
+					itemContainer.get(j).update();
+				}
+
+			}
 
 			for (j = 0; j < enemyContainer.size(); j++) {
 				if (planeContainer.get(i).collision(enemyContainer.get(j))) {
@@ -106,13 +110,12 @@ public class GameLogic {
 				if (bulletContainer.get(j) instanceof PlayerBullet) {
 					if (enemyContainer.get(i).collision((PlayerBullet) bulletContainer.get(j))) {
 						enemyContainer.get(i).takeDamage((PlayerBullet) bulletContainer.get(j));
-							bulletContainer.get(j).destroy();
-						}
+						bulletContainer.get(j).destroy();
 					}
-				if (bulletContainer.get(j) instanceof SpacialAttack) {
+				} else if (bulletContainer.get(j) instanceof SpacialAttack) {
 					if (enemyContainer.get(i).collision((SpacialAttack) bulletContainer.get(j))) {
 						enemyContainer.get(i).takeDamage((SpacialAttack) bulletContainer.get(j));
-						}
+					}
 				}
 			}
 			enemyContainer.get(i).update();

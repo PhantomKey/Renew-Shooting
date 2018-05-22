@@ -69,6 +69,9 @@ public abstract class CollidableEntity extends Entity {
 			//System.out.println("F");
 		}
 	}
+	public boolean collision(Item item) {
+		return this.getBound((int) width, (int) height).intersects(item.getBound((int) item.width, (int) item.height));
+	}
 
 	public Rectangle getBound(int width, int height) {
 		return new Rectangle((int) x, (int) y, width, height);

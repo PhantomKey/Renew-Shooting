@@ -13,9 +13,8 @@ public class RenderableHolder {
 	private List<IRenderable> entities;
 	private Comparator<IRenderable> comparator;
 	
-	public static AudioClip shoot1 ;
-	public static AudioClip shoot2 ;
-	public static AudioClip shoot3 ;
+	public static AudioClip shoot1;
+	public static AudioClip d1;
 	public static Image backgroundspace ;
 	public static Image backgroundgame ;
 	public static Image spaceship ;
@@ -44,7 +43,7 @@ public class RenderableHolder {
 	public static void loadResources() {
 		System.out.println("load");
 		shoot1 = new AudioClip(ClassLoader.getSystemResource("2.wav").toString());
-		//shoot2 = new AudioClip(ClassLoader.getSystemResource("source/gunshot2.wav").toString());
+		d1 = new AudioClip(ClassLoader.getSystemResource("d1.wav").toString());
 		//shoot3 = new AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
 		//backgroundgame = new Image("bggame.gif");

@@ -109,7 +109,7 @@ public abstract class Plane extends CollidableEntityWithHp{
 	}
 	
 	public void increasePower(int i) {
-		power += i;
+		this.power += i;
 		if(powerLevel == 4) {
 			if(power > requiredPower[powerLevel]) {
 				power = requiredPower[powerLevel];

@@ -17,7 +17,6 @@ public abstract class BasicBullet extends CollidableEntity{
 	
 	@Override
 	public void update() {
-		System.out.println(x+" "+y);
 		this.x += dx;
 		this.y += dy; 
 		outOfBound(this);

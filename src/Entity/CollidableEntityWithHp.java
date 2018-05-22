@@ -5,6 +5,7 @@ import java.util.Random;
 
 import Logic.GameLogic;
 import Scene.SceneManager;
+import shareObj.RenderableHolder;
 
 public abstract class CollidableEntityWithHp extends CollidableEntity {
 	protected int maxHp;
@@ -21,7 +22,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	public CollidableEntityWithHp(int hp, int spacialAction, int damage, double speed, double width, double height) {
 		super(width, height, speed, damage);
 		this.maxHp = hp;
-		this.maxSpacialAction = spacialAction;
+		this.maxSpacialAction = 3;
 		this.hp = hp;
 		this.spacialAction = spacialAction;
 	}
@@ -41,8 +42,8 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		} else if (item.getName().equals("SP")) {
 			this.spacialAction += 1;
 		} else if (item.getName().equals("UP")) {
-			if (this instanceof Plane) {
-				((Plane) this).increasePower(1);
+			if (this instanceof Player) {
+				((Player) this).increasePower(1);
 			}
 		}
 
@@ -50,10 +51,6 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	}
 
 	public void takeDamage(PlayerBullet pBullet) {
-		/*
-		 * if (this instanceof Boss) { RenderableHolder.takeDamage.setVolume(0.2);
-		 * RenderableHolder.takeDamage.play(); }
-		 */
 		int damage = pBullet.getDamage();
 		if (damage < 1) {
 			damage = 1;
@@ -62,10 +59,6 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	}
 	
 	public void takeDamage(SpacialAttack pBullet) {
-		/*
-		 * if (this instanceof Boss) { RenderableHolder.takeDamage.setVolume(0.2);
-		 * RenderableHolder.takeDamage.play(); }
-		 */
 		int damage = pBullet.getDamage();
 		if (damage < 1) {
 			damage = 1;
@@ -112,9 +105,8 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	 */
 	protected void dropItem() {
 		Random random = new Random();
-		dropChance = random.nextInt(100);
-		if (dropChance >= 0 && dropChance < 10 /* && !(this instanceof EnemyBullet) */) { ////////////// Drop Chance
-																							////////////// 10%///////////////////////////
+		dropChance = random.nextInt(100)+1;
+		if (dropChance >= 0 && dropChance < 30 /* && !(this instanceof EnemyBullet) */) { ////////////// Drop Chance																					////////////// 10%///////////////////////////
 			GameLogic.addEntity(new Item(this.x, this.y));
 		}
 	}
@@ -140,8 +132,10 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 			if (this instanceof Plane) {
 				GameLogic.removeEntity((Plane) this);
 			} else if (this instanceof Enemy) {
+				RenderableHolder.d1.play();
 				dropItem();
 				GameLogic.removeEntity((Enemy) this);
+				
 			}
 		}
 
