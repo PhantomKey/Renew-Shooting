@@ -3,9 +3,10 @@ package Logic;
 import java.util.Random;
 
 import Entity.Minion1;
+import Entity.Player;
 import Scene.SceneManager;
 
-public class wave {
+public class Wave {
 	private static final String[] WAVE_LIST = {"Mass","Mass","Mass","Wave","Wave","Wave","Strike","Strike","Strike","All"};
 	private static String name;
 	private static int posX;
@@ -31,36 +32,43 @@ public class wave {
 	}
 	
 	private static void Mass() {
-		posX = 650;
+		posX = 0;
 		posY = 0;
 		for (int i = 0; i < 3*numberMultiply; i++) {
-			GameLogic.addEntity(new Ship(posX, posY));
-			posY = (posY+80)%SceneManager.SCENE_HEIGHT;
-			GameLogic.addEntity(new Ship2(posX, posY));
-			posY = (posY+80)%SceneManager.SCENE_HEIGHT;
+			GameLogic.addEntity(new Minion1(posX, posY));
+			posY = (posY+80)%SceneManager.SCENE_WIDTH;
+			GameLogic.addEntity(new Minion1(posX, posY));
+			posY =  (posY+80)%SceneManager.SCENE_WIDTH;
 		}
 	}
 
 	private static void Wave() {
-		posX = 650;
+		posX = 0;
 		posY = 0;
 		for (int i = 0; i < 6*numberMultiply; i++) {
-			GameLogic.addEntity(new Ship(posX, posY));
-			posX = (posX+40);
+			GameLogic.addEntity(new Minion1(posX, posY));
+			posX = (posX+50);
 			posY = (posY+80)%SceneManager.SCENE_HEIGHT;
 		}
 	}
 	private static void Strike() {
-		posX = 800;
+		posX = 0;
 		posY = 0;
 		Random random = new Random();
 		for (int i = 0; i < 3*numberMultiply;i++) {
-			GameLogic.addEntity(new Ship2(Hero.standX+posX,Hero.standY+posY));
-			posX += 40;
-			posY += random.nextInt(20)-10;
+			GameLogic.addEntity(new Minion1(Player.standX+posX,Player.standY+posY));
+			posX += random.nextInt(20)-10;
+			posY += 30;
 		}
 	}
 	public static void update() {
+		decreaseDelay = 0;
+		numberMultiply = 1;
+		if (delay > DEFAULT_DELAY) {
+			generateWave();
+			delay = 0+decreaseDelay;
+		}
+		delay++;
 		
 	}
 	private static void BadLuckGamer() {

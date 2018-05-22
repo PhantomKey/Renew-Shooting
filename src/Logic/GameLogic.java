@@ -26,6 +26,7 @@ public class GameLogic {
 		HUD hud = new HUD();
 		planeContainer = new ArrayList<Plane>();
 		bulletContainer = new ArrayList<BasicBullet>();
+		enemyContainer = new ArrayList<Enemy>();
 		Background bg = new Background();
 		RenderableHolder.getInstance().add(bg);
 		RenderableHolder.getInstance().add(hud);

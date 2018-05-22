@@ -3,6 +3,7 @@ package Scene;
 import Input.InputUtility;
 import Logic.GameLogic;
 import Logic.PlayBGM;
+import Logic.Wave;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
@@ -54,7 +55,7 @@ public class Game extends Canvas {
 			paintComponent();
 			gamelogic.logicUpdate();
 			RenderableHolder.getInstance().update();
-			// Wave.update();
+			Wave.update();
 			// playlightning();
 			try {
 				Thread.sleep(1);
