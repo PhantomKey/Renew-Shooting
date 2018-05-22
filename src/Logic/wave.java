@@ -16,6 +16,7 @@ public class Wave {
 	private static int currentStat;
 	private static int decreaseDelay;
 	private static int numberMultiply;
+	
 
 	private static void generateWave() {
 		Random random = new Random();
@@ -63,8 +64,25 @@ public class Wave {
 		}
 	}
 	public static void update() {
-		decreaseDelay = 0;
-		numberMultiply = 1;
+		currentStat = CWave.getSatge();
+		if (currentStat == 1) {
+			decreaseDelay = 0;
+			numberMultiply = 1;
+		} else if (currentStat == 2) {
+			decreaseDelay = 30;
+			numberMultiply = 2;
+		} else if(currentStat == 3) {
+			decreaseDelay = 60;
+			numberMultiply = 3;
+		}
+		else if(currentStat == 4) {
+			decreaseDelay = 120;
+			numberMultiply = 4;
+		}
+		else {
+			decreaseDelay = 200;
+			numberMultiply = 4;
+		}
 		if (delay > DEFAULT_DELAY) {
 			generateWave();
 			delay = 0+decreaseDelay;
