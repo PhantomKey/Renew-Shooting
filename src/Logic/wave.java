@@ -32,7 +32,7 @@ public class Wave {
 	}
 	
 	private static void Mass() {
-		posX = 0;
+		posX = 650/2;
 		posY = 0;
 		for (int i = 0; i < 3*numberMultiply; i++) {
 			GameLogic.addEntity(new Minion1(posX, posY));
@@ -43,7 +43,7 @@ public class Wave {
 	}
 
 	private static void wave() {
-		posX = 0;
+		posX = 650/2;
 		posY = 0;
 		for (int i = 0; i < 6*numberMultiply; i++) {
 			GameLogic.addEntity(new Minion1(posX, posY));
@@ -56,7 +56,7 @@ public class Wave {
 		posY = 0;
 		Random random = new Random();
 		for (int i = 0; i < 3*numberMultiply;i++) {
-			GameLogic.addEntity(new Minion1(Player.standX+posX,Player.standY+posY));
+			GameLogic.addEntity(new Minion1(Player.standX+posX,-30));
 			posX += random.nextInt(20)-10;
 			posY += 30;
 		}

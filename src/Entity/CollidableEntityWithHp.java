@@ -131,11 +131,11 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	}
 
 	protected void outOfBound(Enemy tempEnemy) {
-		if (this.x > 650) {
+		if (this.x > 650-tempEnemy.getWidth()) {
 			this.destroyed = true;
 			GameLogic.removeEntity(tempEnemy);
 		}
-		if (this.x < 0) { // not sure
+		if (this.x < 0+tempEnemy.getWidth()) { // not sure
 			this.destroyed = true;
 			GameLogic.removeEntity(tempEnemy);
 		}
