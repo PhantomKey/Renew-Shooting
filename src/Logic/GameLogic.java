@@ -9,6 +9,7 @@ import Entity.Enemy;
 import Entity.Item;
 import Entity.Plane;
 import Entity.Player;
+import Entity.PlayerBullet;
 import shareObj.RenderableHolder;
 
 public class GameLogic {
@@ -97,13 +98,18 @@ public class GameLogic {
 			 * planeContainer.get(i).takeDamage(enemyContainer.get(j)); } }
 			 */
 			planeContainer.get(i).update();
-			/*
-			 * } for (i = 0; i < enemyContainer.size(); i++) { for (j = 0; j <
-			 * planeContainer.size(); j++) { if
-			 * (enemyContainer.get(i).collision(planeContainer.get(j))) {
-			 * enemyContainer.get(i).takeDamage(planeContainer.get(j)); } }
-			 * enemyContainer.get(i).update();
-			 */
+
+		}
+		for (i = 0; i < enemyContainer.size(); i++) {
+			for (j = 0; j <bulletContainer.size(); j++) {
+				if (bulletContainer.get(j) instanceof PlayerBullet) {
+					if (enemyContainer.get(i).collision((PlayerBullet) bulletContainer.get(j))) {
+						//enemyContainer.get(i).takeDamage((PlayerBulet) bulletContainer.get(j));
+					}
+				}
+			}
+			enemyContainer.get(i).update();
+
 		}
 	}
 
