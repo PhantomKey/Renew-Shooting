@@ -17,6 +17,7 @@ public class Player extends Plane implements Shootable {
 	private static final int DEFAULT_COOLDOWN = 20;
 	private int shootCooldown;
 	private AudioClip shoot = RenderableHolder.shoot1;
+	private AudioClip Bom = RenderableHolder.Bom;
 
 	public Player() {
 		super(3, 1, 0, 5, spaceShip.getWidth(), spaceShip.getHeight());
@@ -46,8 +47,9 @@ public class Player extends Plane implements Shootable {
 		invulnerableTime--;
 		checkHpAndSpacialAttack();
 		destroy();
+		ultimate();
 		/*
-		 * chargeShoot(); heal(); ultimate(); ; healDelay--; 
+		 * chargeShoot(); heal();  ; healDelay--; 
 		 *  recoveryMana(); 
 		 */
 	}
@@ -72,6 +74,14 @@ public class Player extends Plane implements Shootable {
 				GameLogic.addEntity((BasicBullet) (new PlayerBullet(265, this.x-5, this.y)));
 			}
 
+	}
+	
+	public void ultimate() {
+		if (InputUtility.getKeyPressed(KeyCode.X) && this.spacialAction > 0) {
+			Bom.play();
+			GameLogic.addEntity(new SpacialAttack());
+			this.spacialAction -= 1;
+		} 
 	}
 
 }

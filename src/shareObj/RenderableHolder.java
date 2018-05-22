@@ -33,6 +33,8 @@ public class RenderableHolder {
 	public static Image Sp;
 	public static Image SpGate;
 	public static AudioClip BMG;
+	public static AudioClip Bom;
+	public static Image blast;
 	
 	
 	static {
@@ -61,7 +63,8 @@ public class RenderableHolder {
 		Sp = new Image(ClassLoader.getSystemResource("PowerUp6.png").toString());
 		SpGate = new Image(ClassLoader.getSystemResource("wrench.png").toString());
 		BMG = new  AudioClip(ClassLoader.getSystemResource("3.wav").toString());
-		
+		Bom = new AudioClip(ClassLoader.getSystemResource("explosion-1.wav").toString());
+		blast = new Image(ClassLoader.getSystemResource("bigbombx.gif").toString());
 	}
 
 	public RenderableHolder() {
