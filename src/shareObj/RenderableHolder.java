@@ -7,6 +7,7 @@ import java.util.List;
 
 import javafx.scene.image.Image;
 import javafx.scene.media.AudioClip;
+import javafx.scene.text.Font;
 
 public class RenderableHolder {
 	private static final RenderableHolder instance = new RenderableHolder();
@@ -18,9 +19,7 @@ public class RenderableHolder {
 	public static Image backgroundspace;
 	public static Image backgroundgame;
 	public static Image spaceship;
-	public static Image boss1;
 	public static Image boss2;
-	public static Image boss3;
 	public static Image enermy;
 	public static Image playerBullet;
 	public static Image Instruction;
@@ -36,6 +35,10 @@ public class RenderableHolder {
 	public static Image blast;
 	public static AudioClip take;
 	public static Image enermy2;
+	public static Font point;
+	public static Image end;
+	public static AudioClip endSong;
+	
 
 	static {
 		loadResources();
@@ -43,17 +46,11 @@ public class RenderableHolder {
 
 	public static void loadResources() {
 		System.out.println("load");
+		boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
 		shoot1 = new AudioClip(ClassLoader.getSystemResource("2.wav").toString());
 		d1 = new AudioClip(ClassLoader.getSystemResource("d1.wav").toString());
-		// shoot3 = new
-		// AudioClip(ClassLoader.getSystemResource("source/gunshot3.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
-		// backgroundgame = new Image("bggame.gif");
 		spaceship = new Image(ClassLoader.getSystemResource("3.png").toString());
-		// boss1 = new Image("alien1.png");
-		// boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
-		// boss3 = new Image("alien3.png");
-		// enermy = new Image("enermy.png");
 		playerBullet = new Image(ClassLoader.getSystemResource("1.png").toString());
 		Instruction = new Image(ClassLoader.getSystemResource("Instruction.png").toString());
 		star = new Image(ClassLoader.getSystemResource("star.gif").toString(), 100, 100, false, false);
@@ -68,6 +65,9 @@ public class RenderableHolder {
 		Bom = new AudioClip(ClassLoader.getSystemResource("explosion-1.wav").toString());
 		blast = new Image(ClassLoader.getSystemResource("bigbombx.gif").toString());
 		take = new AudioClip(ClassLoader.getSystemResource("powerUp2.wav").toString());
+		point = Font.loadFont(ClassLoader.getSystemResource("Fipps-Regular.otf").toString(), 15);
+		end = new Image(ClassLoader.getSystemResource("end.png").toString());
+		endSong = new AudioClip(ClassLoader.getSystemResource("1.wav").toString());
 	}
 
 	public RenderableHolder() {

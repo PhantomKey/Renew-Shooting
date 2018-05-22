@@ -73,7 +73,7 @@ public class Game extends Canvas {
 		if (GameLogic.p.getHealth() == 0) {
 			stopBGM();
 			animation.stop();
-			// SceneManager.gotoSceneOf(new GameoverScreen());
+			SceneManager.goToSceneOf(new GameEndScreen());
 			// } else if (GameLogic.xmen.getHealth() <= 0) {
 			// stopBGM();
 			// lightning.stop();

@@ -25,7 +25,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		this.maxSpacialAction = 3;
 		this.hp = hp;
 		this.spacialAction = spacialAction;
-		
+
 	}
 
 	public void checkHpAndSpacialAttack() {
@@ -59,7 +59,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		}
 		this.hp -= damage;
 	}
-	
+
 	public void takeDamage(SpacialAttack pBullet) {
 		int damage = pBullet.getDamage();
 		if (damage < 1) {
@@ -89,11 +89,13 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 	}
 
 	public boolean collision(PlayerBullet player) {
-		return this.getBound((int) width, (int) height).intersects(player.getBound((int) player.width, (int) player.height));
+		return this.getBound((int) width, (int) height)
+				.intersects(player.getBound((int) player.width, (int) player.height));
 	}
-	
+
 	public boolean collision(SpacialAttack player) {
-		return this.getBound((int) width, (int) height).intersects(player.getBound((int) player.width, (int) player.height));
+		return this.getBound((int) width, (int) height)
+				.intersects(player.getBound((int) player.width, (int) player.height));
 	}
 
 	public boolean collision(Enemy enemy) {
@@ -103,8 +105,9 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 
 	protected void dropItem() {
 		Random random = new Random();
-		dropChance = random.nextInt(100)+1;
-		if (dropChance >= 0 && dropChance < 20 ) { ////////////// Drop Chance																					////////////// 10%///////////////////////////
+		dropChance = random.nextInt(100) + 1;
+		if (dropChance >= 0 && dropChance < 20) { ////////////// Drop Chance //////////////
+													////////////// 10%///////////////////////////
 			GameLogic.addEntity(new Item(this.x, this.y));
 		}
 	}
@@ -131,19 +134,24 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 			} else if (this instanceof Enemy) {
 				RenderableHolder.d1.play();
 				dropItem();
+				if (this instanceof Minion1) {
+					GameLogic.score.upScore(10);
+				}else{
+					GameLogic.score.upScore(20);
+				}
 				GameLogic.removeEntity((Enemy) this);
-				
+
 			}
 		}
 
 	}
 
 	protected void outOfBound(Enemy tempEnemy) {
-		if (this.x > 650-tempEnemy.getWidth()) {
+		if (this.x > 650 - tempEnemy.getWidth()) {
 			this.destroyed = true;
 			GameLogic.removeEntity(tempEnemy);
 		}
-		if (this.x < 0+tempEnemy.getWidth()) { // not sure
+		if (this.x < 0 + tempEnemy.getWidth()) { // not sure
 			this.destroyed = true;
 			GameLogic.removeEntity(tempEnemy);
 		}

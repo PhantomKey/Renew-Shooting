@@ -22,6 +22,7 @@ public class Main extends Application{
 		primaryStage.centerOnScreen();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void stop() {
 		Game.processBGM.stop();
 		//WinScreen.processBGM.interrupt();

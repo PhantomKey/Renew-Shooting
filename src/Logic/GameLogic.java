@@ -19,7 +19,7 @@ public class GameLogic {
 	private static List<Item> itemContainer;
 	private static List<BasicBullet> bulletContainer;
 	private static List<Enemy> enemyContainer;
-
+	public static Score score;
 	public static Player p;
 
 	public GameLogic() {
@@ -29,6 +29,7 @@ public class GameLogic {
 		bulletContainer = new ArrayList<BasicBullet>();
 		enemyContainer = new ArrayList<Enemy>();
 		itemContainer = new ArrayList<Item>();
+		score = new Score();
 		Background bg = new Background();
 		RenderableHolder.getInstance().add(bg);
 		RenderableHolder.getInstance().add(hud);
