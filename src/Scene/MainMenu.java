@@ -5,35 +5,20 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import shareObj.RenderableHolder;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 
 public class MainMenu extends Canvas{
 	
-	private static final Font Tiltle = new Font("Codia New", 80);
-	private static final Font Menu = new Font("Codia New", 50);
-	private Image background = RenderableHolder.boss2;
+
+	private Image background = RenderableHolder.main;
 	
 	
 	public MainMenu() {
 		super(SceneManager.SCENE_WIDTH,SceneManager.SCENE_HEIGHT);
-		
-		
 		GraphicsContext gc = this.getGraphicsContext2D();
-		gc.drawImage(background, 0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		gc.setFill(Color.WHITE);
-		gc.fillRect(0, 0, SceneManager.SCENE_WIDTH, SceneManager.SCENE_HEIGHT);
-		
-		gc.setFill(Color.BLACK);
-		gc.setTextAlign(TextAlignment.CENTER);
-		gc.setFont(Tiltle);
-		gc.fillText("ShootingSpace",SceneManager.SCENE_WIDTH / 2,SceneManager.SCENE_HEIGHT / 4);
-		gc.setFont(Menu);
-		gc.fillText("Press Enter to start", SceneManager.SCENE_WIDTH / 2, SceneManager.SCENE_HEIGHT * 3 / 4);
+		gc.drawImage(background, 0, 0);
 		
 		this.addKeyEventHandler();
 	}

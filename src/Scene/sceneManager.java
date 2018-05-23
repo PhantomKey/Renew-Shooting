@@ -9,7 +9,7 @@ public class SceneManager {
 	
 	private static Stage primaryStage;
 	private static Canvas mainMenuCanvas = new MainMenu();
-	private static Scene mainMenuScene = new Scene(new Pane(mainMenuCanvas));
+	private static Scene mainMenuScene = new Scene(new Pane(mainMenuCanvas),640,640);
 	public static final int SCENE_WIDTH = 650;
 	public static final int SCENE_HEIGHT = 650;
 	

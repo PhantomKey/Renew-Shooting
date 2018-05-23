@@ -19,7 +19,7 @@ public class RenderableHolder {
 	public static Image backgroundspace;
 	public static Image backgroundgame;
 	public static Image spaceship;
-	public static Image boss2;
+	public static Image main;
 	public static Image enermy;
 	public static Image playerBullet;
 	public static Image Instruction;
@@ -38,6 +38,7 @@ public class RenderableHolder {
 	public static Font point;
 	public static Image end;
 	public static AudioClip endSong;
+	public static Image story;
 	
 
 	static {
@@ -46,7 +47,6 @@ public class RenderableHolder {
 
 	public static void loadResources() {
 		System.out.println("load");
-		boss2 = new Image(ClassLoader.getSystemResource("alien2.png").toString());
 		shoot1 = new AudioClip(ClassLoader.getSystemResource("2.wav").toString());
 		d1 = new AudioClip(ClassLoader.getSystemResource("d1.wav").toString());
 		backgroundspace = new Image(ClassLoader.getSystemResource("bggame.png").toString());
@@ -68,6 +68,9 @@ public class RenderableHolder {
 		point = Font.loadFont(ClassLoader.getSystemResource("Fipps-Regular.otf").toString(), 15);
 		end = new Image(ClassLoader.getSystemResource("end.png").toString());
 		endSong = new AudioClip(ClassLoader.getSystemResource("1.wav").toString());
+		main = new Image(ClassLoader.getSystemResource("mainmenu.png").toString(),650,650,false,false);
+		story = new Image(ClassLoader.getSystemResource("story.png").toString());
+		
 	}
 
 	public RenderableHolder() {

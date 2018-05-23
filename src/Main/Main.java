@@ -18,7 +18,7 @@ public class Main extends Application{
 		// TODO Auto-generated method stub
 		SceneManager.initialize(primaryStage);
 		SceneManager.gotoMainMenu();
-		primaryStage.setTitle("Shoot! Shoot");
+		primaryStage.setTitle("Shooting Space");
 		primaryStage.setResizable(false);
 		primaryStage.centerOnScreen();
 	}
