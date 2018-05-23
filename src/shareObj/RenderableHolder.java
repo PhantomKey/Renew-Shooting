@@ -66,7 +66,7 @@ public class RenderableHolder {
 		blast = new Image(ClassLoader.getSystemResource("bigbombx.gif").toString());
 		take = new AudioClip(ClassLoader.getSystemResource("powerUp2.wav").toString());
 		point = Font.loadFont(ClassLoader.getSystemResource("Fipps-Regular.otf").toString(), 15);
-		end = new Image(ClassLoader.getSystemResource("end.png").toString());
+		end = new Image(ClassLoader.getSystemResource("gameoverfinal.png").toString());
 		endSong = new AudioClip(ClassLoader.getSystemResource("1.wav").toString());
 		main = new Image(ClassLoader.getSystemResource("mainmenu.png").toString(),650,650,false,false);
 		story = new Image(ClassLoader.getSystemResource("story.png").toString());
