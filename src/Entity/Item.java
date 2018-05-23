@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 import java.util.Random;
 
@@ -31,7 +31,6 @@ public class Item extends CollidableEntity {
 		} else {
 			name = ITEM_LIST[2];
 		}
-		// TODO Auto-generated constructor stub
 	}
 
 	public void update() {

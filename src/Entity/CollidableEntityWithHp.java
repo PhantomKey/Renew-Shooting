@@ -1,10 +1,9 @@
-package Entity;
+package entity;
 
-import java.awt.Rectangle;
 import java.util.Random;
 
-import Logic.GameLogic;
-import Scene.SceneManager;
+import logic.GameLogic;
+import scene.SceneManager;
 import shareObj.RenderableHolder;
 
 public abstract class CollidableEntityWithHp extends CollidableEntity {
@@ -107,7 +106,7 @@ public abstract class CollidableEntityWithHp extends CollidableEntity {
 		Random random = new Random();
 		dropChance = random.nextInt(100) + 1;
 		if (dropChance >= 0 && dropChance < 20) { ////////////// Drop Chance //////////////
-													////////////// 10%///////////////////////////
+													////////////// 20%///////////////////////////
 			GameLogic.addEntity(new Item(this.x, this.y));
 		}
 	}

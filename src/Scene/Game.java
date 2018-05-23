@@ -1,15 +1,15 @@
-package Scene;
+package scene;
 
-import Input.InputUtility;
-import Logic.CWave;
-import Logic.GameLogic;
-import Logic.PlayBGM;
-import Logic.Wave;
+import input.InputUtility;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.AudioClip;
+import logic.CWave;
+import logic.GameLogic;
+import logic.PlayBGM;
+import logic.Wave;
 import shareObj.IRenderable;
 import shareObj.RenderableHolder;
 

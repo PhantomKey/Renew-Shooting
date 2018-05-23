@@ -1,7 +1,5 @@
-package Scene;
+package scene;
 
-import Logic.PlayBGM;
-import Logic.Score;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
@@ -12,6 +10,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import logic.PlayBGM;
+import logic.Score;
 import shareObj.RenderableHolder;
 
 public class GameEndScreen extends Canvas {

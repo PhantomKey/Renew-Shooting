@@ -1,9 +1,9 @@
-package Entity;
+package entity;
 
-import Input.InputUtility;
-import Logic.GameLogic;
-import Scene.SceneManager;
+import input.InputUtility;
 import javafx.scene.input.KeyCode;
+import logic.GameLogic;
+import scene.SceneManager;
 
 public abstract class Plane extends CollidableEntityWithHp{
 	

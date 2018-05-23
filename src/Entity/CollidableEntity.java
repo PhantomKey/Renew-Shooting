@@ -1,9 +1,9 @@
-package Entity;
+package entity;
 
 import java.awt.Rectangle;
 
-import Logic.GameLogic;
-import Scene.SceneManager;
+import logic.GameLogic;
+import scene.SceneManager;
 
 public abstract class CollidableEntity extends Entity {
 	protected double width;

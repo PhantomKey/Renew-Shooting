@@ -1,4 +1,4 @@
-package Logic;
+package logic;
 
 public class CWave {
 	private static final int[] waveL = {0,3,6,9,11,14,17};

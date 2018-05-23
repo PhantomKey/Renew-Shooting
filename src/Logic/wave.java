@@ -1,11 +1,11 @@
-package Logic;
+package logic;
 
 import java.util.Random;
 
-import Entity.Minion1;
-import Entity.Minion2;
-import Entity.Player;
-import Scene.SceneManager;
+import entity.Minion1;
+import entity.Minion2;
+import entity.Player;
+import scene.SceneManager;
 
 public class Wave {
 	private static final String[] WAVE_LIST = {"Mass","Mass","Mass","Wave","Wave","Wave","Strike","Strike","Strike","All"};

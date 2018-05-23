@@ -1,4 +1,4 @@
-package Entity;
+package entity;
 
 public abstract class BasicBullet extends CollidableEntity{
 	private double rad;
@@ -20,7 +20,6 @@ public abstract class BasicBullet extends CollidableEntity{
 		this.x += dx;
 		this.y += dy; 
 		outOfBound(this);
-		//destroy();
 	}
 
 	@Override

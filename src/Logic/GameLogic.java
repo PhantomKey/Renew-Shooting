@@ -1,16 +1,17 @@
-package Logic;
+package logic;
 
 import java.util.ArrayList;
 import java.util.List;
-import Scene.Background;
-import Scene.HUD;
-import Entity.BasicBullet;
-import Entity.Enemy;
-import Entity.Item;
-import Entity.Plane;
-import Entity.Player;
-import Entity.PlayerBullet;
-import Entity.SpacialAttack;
+
+import entity.BasicBullet;
+import entity.Enemy;
+import entity.Item;
+import entity.Plane;
+import entity.Player;
+import entity.PlayerBullet;
+import entity.SpacialAttack;
+import scene.Background;
+import scene.HUD;
 import shareObj.RenderableHolder;
 
 public class GameLogic {
@@ -56,14 +57,11 @@ public class GameLogic {
 	}
 
 	public synchronized static void addEntity(BasicBullet entity) {
-		System.out.println("add");
 		bulletContainer.add(entity);
-		System.out.println(bulletContainer.size());
 		RenderableHolder.getInstance().add(entity);
 	}
 
 	public synchronized static void removeEntity(BasicBullet entity) {
-		System.out.println("remove");
 		bulletContainer.remove(entity);
 	}
 
@@ -84,7 +82,6 @@ public class GameLogic {
 			if (!bulletContainer.isEmpty()) {
 				for (j = 0; j < bulletContainer.size(); j++) {
 					bulletContainer.get(j).update();
-					// System.out.println(j);
 				}
 			}
 			if (!itemContainer.isEmpty()) {

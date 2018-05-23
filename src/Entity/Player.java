@@ -1,13 +1,13 @@
-package Entity;
+package entity;
 
-import Input.InputUtility;
-import Logic.GameLogic;
-import Scene.SceneManager;
+import input.InputUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
+import logic.GameLogic;
+import scene.SceneManager;
 import shareObj.RenderableHolder;
 
 public class Player extends Plane implements Shootable {
@@ -24,7 +24,7 @@ public class Player extends Plane implements Shootable {
 	public Player() {
 		super(3, 1, 0, 5, spaceShip.getWidth(), spaceShip.getHeight());
 		this.y = SceneManager.SCENE_HEIGHT - this.height - 50;
-		this.x = SceneManager.SCENE_WIDTH / 2;
+		this.x = SceneManager.SCENE_WIDTH / 2-20;
 		delay = 20;
 		time = 0;
 	}
@@ -100,7 +100,6 @@ public class Player extends Plane implements Shootable {
 		if (InputUtility.getKeyPressed(KeyCode.X) && this.spacialAction > 0) {
 			if (time == 0) {
 				Bom.play();
-				System.out.println("hell");
 				GameLogic.addEntity(new SpacialAttack());
 				this.spacialAction -= 1;
 				time = delay;

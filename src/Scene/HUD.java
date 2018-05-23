@@ -1,4 +1,4 @@
-package Scene;
+package scene;
 
 import javafx.scene.canvas.GraphicsContext;
 import com.sun.javafx.tk.FontLoader;
@@ -6,9 +6,9 @@ import com.sun.javafx.tk.Toolkit;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import logic.GameLogic;
 import shareObj.IRenderable;
 import shareObj.RenderableHolder;
-import Logic.GameLogic;
 
 public class HUD implements IRenderable {
 	private Image heart = RenderableHolder.Life;

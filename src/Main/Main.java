@@ -1,9 +1,10 @@
-package Main;
+package main;
 
-import Scene.Game;
-import Scene.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import scene.Game;
+import scene.GameEndScreen;
+import scene.SceneManager;
 
 public class Main extends Application{
 
@@ -25,8 +26,7 @@ public class Main extends Application{
 	@SuppressWarnings("deprecation")
 	public void stop() {
 		Game.processBGM.stop();
-		//WinScreen.processBGM.interrupt();
-		//GameoverScreen.processBGM.interrupt();
+		GameEndScreen.processBGM.interrupt();
 	}
 
 }

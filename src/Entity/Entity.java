@@ -1,11 +1,10 @@
-package Entity;
+package entity;
 
 import shareObj.IRenderable;
 
 public abstract class Entity implements IRenderable{
 	protected double x,y;
 	protected int z;
-	//visible
 	protected boolean visible,destroyed;
 
 	
